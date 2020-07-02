@@ -13,6 +13,7 @@ namespace FIRST_CS
         BigInteger _numerator;
         BigInteger _denominator;
         int _sign = 1;
+        //убрать sign
 
         public BigInteger Numerator
         {
@@ -83,6 +84,7 @@ namespace FIRST_CS
             {
                 this._numerator /= Nod(numerator, denominator);
                 this._denominator /= Nod(numerator, denominator);
+                //greatesCommonDiv
             }
         }
         private static BigInteger Nod(BigInteger n, BigInteger d)
@@ -231,6 +233,16 @@ namespace FIRST_CS
 
         public Fraction getSquareRootNewTon(Fraction eps)
         {
+            if(eps <= new Fraction(0,1))
+            {
+                throw new Exception("Invalid pes, <=0");
+            }
+
+            if(this.Sign < 0)
+            {
+                throw new Exception("Invalid argument, <0");
+            }
+
             var approxim = new Fraction(1, 1);
             var abs = approxim * approxim - this;
             abs.Sign = 1;
@@ -310,7 +322,7 @@ namespace FIRST_CS
 
         public static bool operator ==(Fraction fraction1, Fraction fraction2)
         {
-            if (((object)fraction1) == null || ((object)fraction2) == null)
+            if (ReferenceEquals((fraction1), null) || ReferenceEquals((fraction2), null))
                 return Object.Equals(fraction1, fraction2);
 
             return fraction1.Equals(fraction2);
@@ -318,7 +330,7 @@ namespace FIRST_CS
 
         public static bool operator !=(Fraction fraction1, Fraction fraction2)
         {
-            if (((object)fraction1) == null || ((object)fraction2) == null)
+            if ((fraction1) == null || (fraction2) == null)
                 return !Object.Equals(fraction1, fraction2);
 
             return !(fraction1.Equals(fraction2));

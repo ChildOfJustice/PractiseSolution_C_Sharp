@@ -9,13 +9,15 @@ using FIRST_CS;
 
 namespace THIRD_CS
 {
+    //парабола - одинаковые знаки, должен быть корень
+
     class Program
     {
         static void Main(string[] args)
         {
             try
             {
-                Console.WriteLine(DihSearch(0, 3, (x) => x - new Fraction(2, 1), new Fraction(1, 1000000)).ToDecimalFractionString(5));
+                Console.WriteLine(DihSearch(-5, 5, (x) => (x - new Fraction(2, 1))* (x - new Fraction(2, 1)), new Fraction(1, 1000000)).ToDecimalFractionString(5));
 
 
             } catch (Exception e)
@@ -42,7 +44,7 @@ namespace THIRD_CS
             //Console.WriteLine((function(a) * function(b)).ToString());
             if ((function(a) * function(b)).Sign > 0)
             {
-                throw new Exception("There is no root here");
+                throw new Exception("Cannot find the root here");
             }
             var leftEdge = a;
             var rightEdge = b;

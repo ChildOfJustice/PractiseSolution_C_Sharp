@@ -10,6 +10,8 @@ namespace FOURTH_CS
 {
     class MiddleRectsIntegrate : IIntegratable
     {
+        //на единицу меньше
+
         public Fraction Integrate(Func<Fraction, Fraction> function, Fraction a, Fraction b, Fraction eps, string methodName, out TimeSpan timeElapsed)
         {
             Stopwatch stopWatch = new Stopwatch();

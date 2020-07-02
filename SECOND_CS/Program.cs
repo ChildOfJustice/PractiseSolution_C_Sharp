@@ -9,6 +9,8 @@ namespace SECOND_CS
 {
     class Program
     {
+        //тейлор
+
         static void Main(string[] args)
         {
             var comp1 = new Complex(new Fraction(2, 1), new Fraction(1, 1));

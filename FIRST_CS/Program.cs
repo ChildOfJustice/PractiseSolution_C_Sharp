@@ -17,7 +17,7 @@ namespace FIRST_CS
             try
             {
 
-                var fr3 = new Fraction(1, 6);
+                var fr3 = new Fraction(1, 12);
                 Console.WriteLine(fr3.ToDecimalFractionString(3));
                 Console.WriteLine(fr3.getSquareRootNewTon(new Fraction(1, 100000)).ToDecimalFractionString(100));
 
