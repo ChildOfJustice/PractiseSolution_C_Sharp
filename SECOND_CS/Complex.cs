@@ -8,11 +8,7 @@ using System.Numerics;
 
 namespace SECOND_CS
 {
-    /*
-     * Реализуйте
-        нахождение модуля и аргумента, возведение в степень, а также извлечение
-        корня n-ной степени
-    */
+    
 
     class Complex : IEquatable<Complex>,
         IComparable, IComparable<Complex>,
@@ -52,19 +48,27 @@ namespace SECOND_CS
                 return -Math.PI + Math.Atan((Imaginary / Real).GetRoundedValue());
             }
         }
-        public Complex SqrtN(int n)
+        public List<Complex> SqrtN(int n)
         {
             var double_n = (double)n;
             var power = 1/double_n;
             var coeff = Math.Pow(this.Absolute(new Fraction(1, 1000)).GetRoundedValue(), power);
 
-            double real_ = coeff*Math.Cos((this.Argument()+ 2*Math.PI) / double_n);
-            double imaginary_ = coeff * Math.Sin((this.Argument() + 2 * Math.PI) / double_n);
 
-            real_ *= 100000.0d;
-            imaginary_ *= 100000.0d;
+            var ret = new List<Complex>();
 
-            return new Complex(new Fraction((BigInteger)real_,100000),new Fraction((BigInteger)imaginary_,100000));
+            for (int i = 0; i < n; i++)
+            {
+                //Console.WriteLine("added");
+                double real_ = coeff * Math.Cos((this.Argument() + 2 * Math.PI*i) / double_n);
+                double imaginary_ = coeff * Math.Sin((this.Argument() + 2 * Math.PI*i) / double_n);
+
+                real_ *= 100000.0d;
+                imaginary_ *= 100000.0d;
+                ret.Add(new Complex(new Fraction((BigInteger)real_, 100000), new Fraction((BigInteger)imaginary_, 100000)));
+            }
+
+            return ret;
         }
 
         public Fraction Real

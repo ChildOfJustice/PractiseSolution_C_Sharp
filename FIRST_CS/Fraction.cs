@@ -7,11 +7,6 @@ using System.Numerics;
 
 namespace FIRST_CS
 {
-    /*
-     * Реализовать извлечение квадратного корня из дроби, используя
-    метод Ньютона. При невозможности выполнения операции должно быть
-    сгенерировано исключение
-     */
 
     public sealed class Fraction : IEquatable<Fraction>, IComparable, IComparable<Fraction>, ICloneable
     {
@@ -260,44 +255,19 @@ namespace FIRST_CS
             if (this.Sign == 1) return omg_n / omg_d;
             else return -omg_n / omg_d;
         }
-        public string ToDecimalFractionString(int figuresAfterDotQuantity)
+        public string ToDecimalFractionString(BigInteger figuresAfterDotQuantity)
         {
-            double omg_n = (double)this._numerator;
-            double omg_d = (double)this._denominator;
-            var sb = new StringBuilder();
-            var figureStr = (omg_n / omg_d).ToString();
-            string sPattern = ".";
-            bool whole = true;
-            foreach (var c in figureStr)
-            {
-                if (c == '.')
-                {
-                    whole = false;
-
-                }
-            }
-            if (whole)
-            {
-                return figureStr;
-            } else
-            {
-                var i = 0;
-                while (figureStr[i] != '.')
-                {
-                    sb.Append(figureStr[i]);
-                    i++;
-                }
-                if (figuresAfterDotQuantity != 0)
-                {
-                    for (var i2 = 0; i2 < figuresAfterDotQuantity + 1; i2++)
-                    {
-                        sb.Append(figureStr[i]);
-                        i++;
-                    }
-                }
-                return sb.ToString();
-            }
+            var full = BigInteger.DivRem(this._numerator, this._denominator, out var rem);
             
+            var sb = new StringBuilder(full.ToString());
+            sb.Append('.');
+            
+            for (int i = 0; i < figuresAfterDotQuantity; i++)
+            {
+                rem *= 10;
+                sb.Append(BigInteger.DivRem(rem, this._denominator, out rem));
+            }
+            return sb.ToString();
         }
 
         public override string ToString()

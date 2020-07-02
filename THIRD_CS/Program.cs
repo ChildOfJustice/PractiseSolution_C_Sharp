@@ -13,8 +13,15 @@ namespace THIRD_CS
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(DihSearch(0, 3, (x) => x - new Fraction(2, 1), new Fraction(1, 1000000)).ToDecimalFractionString(5));
+            try
+            {
+                Console.WriteLine(DihSearch(0, 3, (x) => x - new Fraction(2, 1), new Fraction(1, 1000000)).ToDecimalFractionString(5));
 
+
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             Console.ReadLine();
         }
 
@@ -27,6 +34,10 @@ namespace THIRD_CS
             if (function(b).IsZero())
             {
                 return b;
+            }
+            if (a > b)
+            {
+                throw new Exception("wrong interval edges");
             }
             //Console.WriteLine((function(a) * function(b)).ToString());
             if ((function(a) * function(b)).Sign > 0)

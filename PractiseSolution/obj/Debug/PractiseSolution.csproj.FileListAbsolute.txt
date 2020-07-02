@@ -1,0 +1,7 @@
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\PractiseSolution\bin\Debug\PractiseSolution.exe.config
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\PractiseSolution\bin\Debug\PractiseSolution.exe
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\PractiseSolution\bin\Debug\PractiseSolution.pdb
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\PractiseSolution\obj\Debug\PractiseSolution.csprojAssemblyReference.cache
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\PractiseSolution\obj\Debug\PractiseSolution.csproj.CoreCompileInputs.cache
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\PractiseSolution\obj\Debug\PractiseSolution.exe
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\PractiseSolution\obj\Debug\PractiseSolution.pdb

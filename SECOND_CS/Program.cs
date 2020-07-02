@@ -15,8 +15,13 @@ namespace SECOND_CS
             var comp2 = new Complex(new Fraction(3, 1), new Fraction(1, 1));
             Console.WriteLine((comp1*comp2).ToString());
 
-            Console.WriteLine(comp1.SqrtN(2).ToString());
-            Console.WriteLine((comp1.SqrtN(2)* comp1.SqrtN(2)).ToString());
+            Console.WriteLine((comp1).ToString());
+            Console.WriteLine((comp1.SqrtN(2)[0]* comp1.SqrtN(2)[0]).ToString());
+            foreach (var el in comp1.SqrtN(3))
+            {
+                Console.WriteLine(el.ToString());
+            }
+            //Console.WriteLine((comp1.SqrtN(2)[0]* comp1.SqrtN(2)[0]).ToString());
 
             Console.ReadLine();
         }

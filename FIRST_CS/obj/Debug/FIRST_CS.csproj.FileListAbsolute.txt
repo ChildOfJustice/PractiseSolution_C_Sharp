@@ -1,0 +1,7 @@
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\FIRST_CS\bin\Debug\FIRST_CS.exe.config
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\FIRST_CS\bin\Debug\FIRST_CS.exe
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\FIRST_CS\bin\Debug\FIRST_CS.pdb
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\FIRST_CS\obj\Debug\FIRST_CS.csprojAssemblyReference.cache
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\FIRST_CS\obj\Debug\FIRST_CS.csproj.CoreCompileInputs.cache
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\FIRST_CS\obj\Debug\FIRST_CS.exe
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\FIRST_CS\obj\Debug\FIRST_CS.pdb
