@@ -10,8 +10,7 @@ namespace FOURTH_CS
 {
     class MiddleRectsIntegrate : IIntegratable
     {
-        //на единицу меньше
-
+        
         public Fraction Integrate(Func<Fraction, Fraction> function, Fraction a, Fraction b, Fraction eps, string methodName, out TimeSpan timeElapsed)
         {
             Stopwatch stopWatch = new Stopwatch();
@@ -25,10 +24,13 @@ namespace FOURTH_CS
             }
 
             var sum = new Fraction(0, 1);
+
+            var x = a += h / 2;
+
             for (var i = 0; i < n; i++)
             {
-                var x = a + (new Fraction(i, 1) / 2) * h;
                 sum += function(x);
+                x += h;
             }
 
             var result = h * sum;

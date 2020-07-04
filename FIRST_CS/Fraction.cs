@@ -12,8 +12,6 @@ namespace FIRST_CS
     {
         BigInteger _numerator;
         BigInteger _denominator;
-        int _sign = 1;
-        //убрать sign
 
         public BigInteger Numerator
         {
@@ -27,12 +25,6 @@ namespace FIRST_CS
 
             private set => _denominator = value;
         }
-        public int Sign
-        {
-            get => _sign;
-
-            private set => _sign = value;
-        }
 
         public Fraction(BigInteger numerator, BigInteger denominator)
         {
@@ -41,19 +33,11 @@ namespace FIRST_CS
                 throw new DivideByZeroException("В знаменателе не может быть нуля");
             }
 
-            if (numerator * denominator < 0)
-            {
-                this._sign = -1;
-            }
-            else
-            {
-                this._sign = 1;
-            }
-            if (numerator < 0) this._numerator = -numerator; else this._numerator = numerator;
-            if (denominator < 0) this._denominator = -denominator; else this._denominator = denominator;
+            this._numerator = numerator;
+            this._denominator = denominator;
 
+            this.CheckSign();
             this.CheckForReduction();
-
         }
 
         public static Fraction PowFraction(Fraction toPow, int power)
@@ -76,56 +60,36 @@ namespace FIRST_CS
             else return temp;
         }
 
+        private void CheckSign()
+        {
+            if (this._denominator < 0 && this._numerator < 0)
+            {
+                this._numerator = BigInteger.Abs(this._numerator);
+                this._denominator = BigInteger.Abs(this._denominator);
+            }
+            else if (this._denominator < 0 && this._numerator > 0)
+            {
+                //
+            }
+            else if (this._denominator > 0 && this._numerator < 0)
+            {
+                this._numerator = BigInteger.Abs(this._numerator);
+                this._denominator = BigInteger.MinusOne * this._denominator;
+            }
+            else if (this._denominator > 0 && this._numerator > 0)
+            {
+                //
+            }
+        }
         private void CheckForReduction()
         {
             var numerator = this._numerator;
             var denominator = this._denominator;
-            if (Nod(numerator, denominator) != 0)
+            if (BigInteger.GreatestCommonDivisor(BigInteger.Abs(numerator), BigInteger.Abs(denominator)) != 1)
             {
-                this._numerator /= Nod(numerator, denominator);
-                this._denominator /= Nod(numerator, denominator);
-                //greatesCommonDiv
+                this._numerator /= BigInteger.GreatestCommonDivisor(BigInteger.Abs(numerator), BigInteger.Abs(denominator));
+                this._denominator /= BigInteger.GreatestCommonDivisor(BigInteger.Abs(numerator), BigInteger.Abs(denominator));
             }
-        }
-        private static BigInteger Nod(BigInteger n, BigInteger d)
-        {
-            if (n < 0) n = -n;
-            if (d < 0) d = -d;
-            
-            while (d != 0 && n != 0)
-            {
-                if (n % d > 0)
-                {
-                    var temp = n;
-                    n = d;
-                    d = temp % d;
-                }
-                else break;
-            }
-            if (d != 0 && n != 0) return d;
-            return 0;
-        }
-        private void CheckSign()
-        {
-            if (this._numerator * this._denominator < 0)
-            {
-                this._sign *= -1;
-            }
-            else
-            {
-                this._sign *= 1;
-            }
-            if (this._numerator < 0) this._numerator = -this._numerator;
-            if (this._denominator < 0) this._denominator = -this._denominator;
-
-        }
-        public bool IsZero()
-        {
-            if (this._numerator == 0)
-            {
-                return true;
-            }
-            return false;
         }
 
 
@@ -133,11 +97,15 @@ namespace FIRST_CS
         public static Fraction Addition(Fraction left, Fraction right)
         {
             Fraction newFraction = new Fraction(left._numerator, left._denominator);
-            newFraction._numerator *= left.Sign;
+
+
             newFraction._numerator *= right._denominator;
-            newFraction._numerator += right._numerator * newFraction._denominator * right.Sign;
-            newFraction._denominator *= right._denominator;
             
+            newFraction._numerator += right._numerator * newFraction._denominator;
+            newFraction._denominator *= right._denominator;
+
+            
+
             newFraction.CheckSign();
             newFraction.CheckForReduction();
 
@@ -151,9 +119,8 @@ namespace FIRST_CS
         public static Fraction Subtraction(Fraction left, Fraction right)
         {
             Fraction newFraction = new Fraction(left._numerator, left._denominator);
-            newFraction._numerator *= left.Sign;
             newFraction._numerator *= right._denominator;
-            newFraction._numerator -= right._numerator * newFraction._denominator * right.Sign;
+            newFraction._numerator -= right._numerator * newFraction._denominator;
             newFraction._denominator *= right._denominator;
 
             newFraction.CheckSign();
@@ -169,10 +136,8 @@ namespace FIRST_CS
         public static Fraction Multiplication(Fraction left, Fraction right)
         {
             Fraction newFraction = new Fraction(left._numerator, left._denominator);
-            newFraction._numerator *= left.Sign;
-
             newFraction._numerator *= right._numerator;
-            newFraction._numerator *= right.Sign;
+            
             newFraction._denominator *= right._denominator;
 
 
@@ -194,10 +159,8 @@ namespace FIRST_CS
             }
 
             Fraction newFraction = new Fraction(left._numerator, left._denominator);
-            newFraction._numerator *= left.Sign;
 
             newFraction._numerator *= right._denominator;
-            newFraction._numerator *= right.Sign;
             newFraction._denominator *= right._numerator;
 
             newFraction.CheckSign();
@@ -218,7 +181,6 @@ namespace FIRST_CS
             }
 
             Fraction newFraction = new Fraction(left._numerator, left._denominator);
-            newFraction._numerator *= left.Sign;
             newFraction._denominator *= right;
 
             newFraction.CheckSign();
@@ -238,14 +200,14 @@ namespace FIRST_CS
                 throw new Exception("Invalid pes, <=0");
             }
 
-            if(this.Sign < 0)
+            if(this.Denominator < 0)
             {
                 throw new Exception("Invalid argument, <0");
             }
 
             var approxim = new Fraction(1, 1);
             var abs = approxim * approxim - this;
-            abs.Sign = 1;
+            abs._denominator = BigInteger.Abs(abs._denominator);
             while (abs > eps)
             {
                 
@@ -254,18 +216,17 @@ namespace FIRST_CS
                 approxim = (div + approxim) / 2;
 
                 abs = approxim * approxim - this;
-                abs.Sign = 1;
+                abs._denominator = BigInteger.Abs(abs._denominator);
             }
             return approxim;
         }
         #endregion
 
-        public double GetRoundedValue()
+        public double ToDouble()
         {
             double omg_n = (double)this._numerator;
             double omg_d = (double)this._denominator;
-            if (this.Sign == 1) return omg_n / omg_d;
-            else return -omg_n / omg_d;
+            return omg_n / omg_d; 
         }
         public string ToDecimalFractionString(BigInteger figuresAfterDotQuantity)
         {
@@ -285,7 +246,7 @@ namespace FIRST_CS
         public override string ToString()
         {
             var temp = "-";
-            if (this._sign > 0)
+            if (this._denominator > 0)
             {
                 temp = "";
             }
@@ -293,7 +254,7 @@ namespace FIRST_CS
             {
                 return $"{temp}{this._numerator}";
             }
-            return $"{temp}{this._numerator}/{this._denominator}";
+            return $"{temp}{this._numerator}/{BigInteger.Abs(this._denominator)}";
         }
 
         #region Equals
@@ -302,7 +263,7 @@ namespace FIRST_CS
             if (other == null)
                 return false;
 
-            if (this._numerator == other._denominator && this._sign == other._sign)
+            if (this._numerator == other._numerator && this._denominator == other._denominator)
                 return true;
             else
                 return false;

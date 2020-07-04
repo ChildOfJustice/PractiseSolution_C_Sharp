@@ -9,15 +9,13 @@ using FIRST_CS;
 
 namespace THIRD_CS
 {
-    //парабола - одинаковые знаки, должен быть корень
-
     class Program
     {
         static void Main(string[] args)
         {
             try
             {
-                Console.WriteLine(DihSearch(-5, 5, (x) => (x - new Fraction(2, 1))* (x - new Fraction(2, 1)), new Fraction(1, 1000000)).ToDecimalFractionString(5));
+                Console.WriteLine(DihSearch(2d, 4d, (x) => (Math.Tan(x / 4) - 1), 1e-10));
 
 
             } catch (Exception e)
@@ -27,22 +25,15 @@ namespace THIRD_CS
             Console.ReadLine();
         }
 
-        public static Fraction DihSearch(Fraction a, Fraction b, Func<Fraction, Fraction> function, Fraction epsilon)
+        public static double DihSearch(double a, double b, Func<double, double> function, double eps)
         {
-            if ((function(a)).IsZero())
-            {
-                return a;
-            }
-            if (function(b).IsZero())
-            {
-                return b;
-            }
+            
             if (a > b)
             {
                 throw new Exception("wrong interval edges");
             }
             //Console.WriteLine((function(a) * function(b)).ToString());
-            if ((function(a) * function(b)).Sign > 0)
+            if ((function(a) * function(b)) > 0)
             {
                 throw new Exception("Cannot find the root here");
             }
@@ -50,17 +41,14 @@ namespace THIRD_CS
             var rightEdge = b;
             var newEdge = (rightEdge - leftEdge) / 2;
 
-            while (rightEdge - leftEdge > epsilon)
+            while (rightEdge - leftEdge > eps)
             {
                 
                 //Console.WriteLine($"iter_ {leftEdge};{rightEdge}, middle {newEdge} !!! {function(rightEdge)} {function(newEdge)}");
 
 
-                if ((function(newEdge)).IsZero())
-                {
-                    return leftEdge + newEdge;
-                }
-                if ((function(rightEdge) * function(leftEdge + newEdge)).Sign > 0)
+                
+                if ((function(rightEdge) * function(leftEdge + newEdge)) > 0)
                 {
                     rightEdge -= newEdge;
                 } else
@@ -72,19 +60,6 @@ namespace THIRD_CS
             }
             return leftEdge + (rightEdge - leftEdge) / 2;
         }
-        #region omg
-        public static Fraction DihSearch(int a, int b, Func<Fraction, Fraction> function, Fraction epsilon)
-        {
-            return DihSearch(new Fraction(a, 1), new Fraction(b, 1), function, epsilon);
-        }
-        public static Fraction DihSearch(int a, Fraction b, Func<Fraction, Fraction> function, Fraction epsilon)
-        {
-            return DihSearch(new Fraction(a, 1), b, function, epsilon);
-        }
-        public static Fraction DihSearch(Fraction a, int b, Func<Fraction, Fraction> function, Fraction epsilon)
-        {
-            return DihSearch(a, new Fraction(b, 1), function, epsilon);
-        }
-        #endregion
+        
     }
 }

@@ -17,12 +17,19 @@ namespace FIRST_CS
             try
             {
 
-                var fr3 = new Fraction(1, 12);
-                Console.WriteLine(fr3.ToDecimalFractionString(3));
-                Console.WriteLine(fr3.getSquareRootNewTon(new Fraction(1, 100000)).ToDecimalFractionString(100));
+                //var fr3 = new Fraction(1, 12);
+                Console.WriteLine((fr1 + fr2).ToString());
+                //var f3 = new Fraction(fr1.Numerator, fr1.Denominator);
+                //Console.WriteLine(f3.Numerator);
+                //Console.WriteLine(f3.Denominator);
 
 
-            } catch(Exception e)
+                //Console.WriteLine(fr3.ToDecimalFractionString(3));
+                //Console.WriteLine(fr3.getSquareRootNewTon(new Fraction(1, 100000)).ToDecimalFractionString(100));
+
+
+            }
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }

@@ -27,7 +27,7 @@ namespace SECOND_CS
 
         public override string ToString()
         {
-            return $"[{Real.GetRoundedValue()} + {Imaginary.GetRoundedValue()}i]";
+            return $"[{Real.ToDouble()} + {Imaginary.ToDouble()}i]";
         }
         public Fraction Absolute(Fraction eps)
         {
@@ -36,23 +36,24 @@ namespace SECOND_CS
         }
         public double Argument()
         {
-            if(Real.Sign > 0)
+            if(Real.Denominator > 0)
             {
-                return Math.Atan((Imaginary / Real).GetRoundedValue());
+                //разрыв в нуле, как тогда в ряд раскладывать для использования только Fraction?
+                return Math.Atan((Imaginary / Real).ToDouble());
             } else
             {
-                if(Imaginary.Sign > 0)
+                if(Imaginary.Denominator > 0)
                 {
-                    return Math.PI + Math.Atan((Imaginary / Real).GetRoundedValue());
+                    return Math.PI + Math.Atan((Imaginary / Real).ToDouble());
                 }
-                return -Math.PI + Math.Atan((Imaginary / Real).GetRoundedValue());
+                return -Math.PI + Math.Atan((Imaginary / Real).ToDouble());
             }
         }
         public List<Complex> SqrtN(int n)
         {
             var double_n = (double)n;
             var power = 1/double_n;
-            var coeff = Math.Pow(this.Absolute(new Fraction(1, 1000)).GetRoundedValue(), power);
+            var coeff = Math.Pow(this.Absolute(new Fraction(1, 1000)).ToDouble(), power);
 
 
             var ret = new List<Complex>();
@@ -123,7 +124,7 @@ namespace SECOND_CS
 
         public static Complex Division(Complex left, Complex right)
         {
-            if (right.Real.IsZero())
+            if (right.Real.Numerator == 0)
             {
                 throw new DivideByZeroException("В знаменателе не может быть нуля");
             }
@@ -164,14 +165,14 @@ namespace SECOND_CS
             {
                 return false;
             }
-            return Math.Abs(Real.GetRoundedValue() - cmplx.Real.GetRoundedValue()) < Epsilon
-                && Math.Abs(Imaginary.GetRoundedValue() - cmplx.Imaginary.GetRoundedValue()) < Epsilon;
+            return Math.Abs(Real.ToDouble() - cmplx.Real.ToDouble()) < Epsilon
+                && Math.Abs(Imaginary.ToDouble() - cmplx.Imaginary.ToDouble()) < Epsilon;
         }
 
         public bool Equals(int @int)
         {
-            return Math.Abs(Real.GetRoundedValue() - @int) < Epsilon
-                && Math.Abs(Imaginary.GetRoundedValue()) < Epsilon;
+            return Math.Abs(Real.ToDouble() - @int) < Epsilon
+                && Math.Abs(Imaginary.ToDouble()) < Epsilon;
         }
 
         #endregion
