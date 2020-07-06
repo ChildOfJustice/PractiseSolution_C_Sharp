@@ -5,6 +5,6 @@
     </StartArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\SEVETH_CS_FILES E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\SEVETH_CS_FILES\txts</StartArguments>
+    <StartArguments>"E:\A_SELF IMPROUVING\UCHEBA\PRACTISE\SEVETH_CS_FILES\Source" "E:\A_SELF IMPROUVING\UCHEBA\PRACTISE\SEVETH_CS_FILES\Source\GroupNames" "E:\A_SELF IMPROUVING\UCHEBA\PRACTISE\SEVETH_CS_FILES\Destination"</StartArguments>
   </PropertyGroup>
 </Project>
