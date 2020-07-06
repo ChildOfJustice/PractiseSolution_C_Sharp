@@ -38,7 +38,7 @@ namespace SECOND_CS
         {
             if(Real.Denominator > 0)
             {
-                //разрыв в нуле, как тогда в ряд раскладывать для использования только Fraction?
+                //разрыв в pi/2, как тогда в ряд раскладывать для использования только Fraction?
                 return Math.Atan((Imaginary / Real).ToDouble());
             } else
             {

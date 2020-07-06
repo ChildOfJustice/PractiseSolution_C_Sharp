@@ -1,0 +1,11 @@
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SIXTH_SC\bin\Debug\SIXTH_SC.exe.config
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SIXTH_SC\bin\Debug\SIXTH_SC.exe
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SIXTH_SC\bin\Debug\SIXTH_SC.pdb
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SIXTH_SC\bin\Debug\FIRST_CS.exe
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SIXTH_SC\bin\Debug\FIRST_CS.pdb
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SIXTH_SC\bin\Debug\FIRST_CS.exe.config
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SIXTH_SC\obj\Debug\SIXTH_SC.csprojAssemblyReference.cache
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SIXTH_SC\obj\Debug\SIXTH_SC.csproj.CoreCompileInputs.cache
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SIXTH_SC\obj\Debug\SIXTH_SC.csproj.CopyComplete
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SIXTH_SC\obj\Debug\SIXTH_SC.exe
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SIXTH_SC\obj\Debug\SIXTH_SC.pdb

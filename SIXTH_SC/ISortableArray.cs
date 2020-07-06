@@ -15,7 +15,7 @@ namespace SIXTH_SC
     interface ISortableArray
     {
         
-        bool SortArray<T>(out List<T>result, ref List<T> resultarrayToSort, SortOrder order, IComparer<T> comparer, List<object>args);//params object[]
+        bool SortArray<T>(out List<T>result, ref List<T> arrayToSort, SortOrder order, IComparer<T> comparer, List<object>args);//params object[] //where T : IComparable<T>
 
     }
 }

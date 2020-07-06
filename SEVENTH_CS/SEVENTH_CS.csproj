@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5133C481-86DA-4DAD-914D-51EA623C4CF0}</ProjectGuid>
+    <ProjectGuid>{62FC8FAB-3079-4B93-AD06-6494218D0390}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SIXTH_SC</RootNamespace>
-    <AssemblyName>SIXTH_SC</AssemblyName>
+    <RootNamespace>SEVENTH_CS</RootNamespace>
+    <AssemblyName>SEVENTH_CS</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,7 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,20 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HeapSortStrategy.cs" />
-    <Compile Include="ISortableArray.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShellSortStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FIRST_CS\FIRST_CS.csproj">
-      <Project>{69eb2fe6-9dff-4155-9855-8b144ab4751c}</Project>
-      <Name>FIRST_CS</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

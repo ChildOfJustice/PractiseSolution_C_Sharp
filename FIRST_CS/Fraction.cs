@@ -314,6 +314,10 @@ namespace FIRST_CS
         public int CompareTo(Fraction obj)
         {
             if (obj == null) throw new ArgumentNullException(nameof(obj));
+
+            if (this._denominator > 0 && obj._denominator < 0) return 1;
+            if (this._denominator < 0 && obj._denominator > 0) return -1;
+
             var thisValue = this._numerator * obj._denominator;
             var otherValue = obj._numerator * this._denominator;
             return thisValue.CompareTo(otherValue);

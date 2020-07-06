@@ -1,0 +1,7 @@
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SEVENTH_CS\bin\Release\SEVENTH_CS.exe.config
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SEVENTH_CS\bin\Release\SEVENTH_CS.exe
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SEVENTH_CS\bin\Release\SEVENTH_CS.pdb
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SEVENTH_CS\obj\Release\SEVENTH_CS.csproj.CoreCompileInputs.cache
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SEVENTH_CS\obj\Release\SEVENTH_CS.exe
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SEVENTH_CS\obj\Release\SEVENTH_CS.pdb
+E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SEVENTH_CS\obj\Release\SEVENTH_CS.csprojAssemblyReference.cache
