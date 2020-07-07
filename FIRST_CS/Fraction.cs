@@ -42,22 +42,27 @@ namespace FIRST_CS
 
         public static Fraction PowFraction(Fraction toPow, int power)
         {
-            Fraction temp = (Fraction)toPow.Clone();
+           
             var one = new Fraction(1, 1);
+            var res = new Fraction(1, 1);
             if (power == 0)
             {
                 return one;
             }
+            if (power == 1)
+            {
+                return (Fraction)toPow.Clone();
+            }
             var absPower = Math.Abs(power);
             for (int i = 0; i < absPower; i++)
             {
-                temp = temp * temp;
+                res *= toPow;
             }
             if (power < 0)
             {
-                return one / temp;
+                return one / res;
             }
-            else return temp;
+            else return res;
         }
 
         private void CheckSign()
@@ -222,6 +227,17 @@ namespace FIRST_CS
         }
         #endregion
 
+        public Fraction Abs()
+        {
+            if(Denominator < 0)
+            {
+                return new Fraction(Numerator, -Denominator);
+            } else
+            {
+                return new Fraction(Numerator, Denominator);
+            }
+        }
+
         public double ToDouble()
         {
             double omg_n = (double)this._numerator;
@@ -232,13 +248,19 @@ namespace FIRST_CS
         {
             var full = BigInteger.DivRem(this._numerator, this._denominator, out var rem);
             
-            var sb = new StringBuilder(full.ToString());
+
+            var sb = new StringBuilder();
+            if (this.Denominator < 0)
+            {
+                sb.Append("-");
+            }
+            sb.Append(full.ToString());
             sb.Append('.');
             
             for (int i = 0; i < figuresAfterDotQuantity; i++)
             {
                 rem *= 10;
-                sb.Append(BigInteger.DivRem(rem, this._denominator, out rem));
+                sb.Append(BigInteger.Abs(BigInteger.DivRem(rem, this._denominator, out rem)));
             }
             return sb.ToString();
         }

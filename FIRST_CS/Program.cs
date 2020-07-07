@@ -11,14 +11,15 @@ namespace FIRST_CS
     {
         static void Main(string[] args)
         {
-            var fr1 = new Fraction(-3, 2);
-            var fr2 = new Fraction(-1, 4);
-
+            var fr1 = new Fraction(8, 10);
+            var fr2 = new Fraction(-1, 1);
+            var n = 1;
+            var fr3 = Fraction.PowFraction(fr1, 2 * n + 1) / (2 * n + 1);
             try
             {
 
                 //var fr3 = new Fraction(1, 12);
-                Console.WriteLine((fr1 + fr2).ToString());
+                Console.WriteLine((Fraction.PowFraction(fr1, 5)).ToDouble());
                 //var f3 = new Fraction(fr1.Numerator, fr1.Denominator);
                 //Console.WriteLine(f3.Numerator);
                 //Console.WriteLine(f3.Denominator);

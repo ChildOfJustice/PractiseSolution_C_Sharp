@@ -9,3 +9,14 @@ E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SECOND_C
 E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SECOND_CS\obj\Debug\SECOND_CS.csproj.CopyComplete
 E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SECOND_CS\obj\Debug\SECOND_CS.exe
 E:\A_SELF IMPROUVING\UCHEBA\ПРАКТИКА\Solutions\PractiseSolution\SECOND_CS\obj\Debug\SECOND_CS.pdb
+E:\A_SELF IMPROUVING\UCHEBA\PRACTISE\Solutions\PractiseSolution\SECOND_CS\bin\Debug\SECOND_CS.exe.config
+E:\A_SELF IMPROUVING\UCHEBA\PRACTISE\Solutions\PractiseSolution\SECOND_CS\bin\Debug\SECOND_CS.exe
+E:\A_SELF IMPROUVING\UCHEBA\PRACTISE\Solutions\PractiseSolution\SECOND_CS\bin\Debug\SECOND_CS.pdb
+E:\A_SELF IMPROUVING\UCHEBA\PRACTISE\Solutions\PractiseSolution\SECOND_CS\bin\Debug\FIRST_CS.exe
+E:\A_SELF IMPROUVING\UCHEBA\PRACTISE\Solutions\PractiseSolution\SECOND_CS\bin\Debug\FIRST_CS.pdb
+E:\A_SELF IMPROUVING\UCHEBA\PRACTISE\Solutions\PractiseSolution\SECOND_CS\bin\Debug\FIRST_CS.exe.config
+E:\A_SELF IMPROUVING\UCHEBA\PRACTISE\Solutions\PractiseSolution\SECOND_CS\obj\Debug\SECOND_CS.csprojAssemblyReference.cache
+E:\A_SELF IMPROUVING\UCHEBA\PRACTISE\Solutions\PractiseSolution\SECOND_CS\obj\Debug\SECOND_CS.csproj.CoreCompileInputs.cache
+E:\A_SELF IMPROUVING\UCHEBA\PRACTISE\Solutions\PractiseSolution\SECOND_CS\obj\Debug\SECOND_CS.csproj.CopyComplete
+E:\A_SELF IMPROUVING\UCHEBA\PRACTISE\Solutions\PractiseSolution\SECOND_CS\obj\Debug\SECOND_CS.exe
+E:\A_SELF IMPROUVING\UCHEBA\PRACTISE\Solutions\PractiseSolution\SECOND_CS\obj\Debug\SECOND_CS.pdb

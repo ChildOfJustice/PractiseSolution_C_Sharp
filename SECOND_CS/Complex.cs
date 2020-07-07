@@ -34,25 +34,95 @@ namespace SECOND_CS
             var temp = Real*Real + Imaginary*Imaginary;
             return temp.getSquareRootNewTon(eps);
         }
-        public double Argument()
+
+        static public Fraction AtanFraction(Fraction x, Fraction eps)
+        {
+            if(x.Abs() > new Fraction(1, 1))
+            {
+                throw new Exception("Invalid Argument");
+            }
+            var sum = new Fraction(0,1);
+            var currentValue = new Fraction(0, 1);
+            var n = 1;
+            do
+            {
+                currentValue = Fraction.PowFraction(new Fraction(-1, 1), n - 1) * (Fraction.PowFraction(x, 2 * n - 1) / (2 * n - 1));
+                sum += currentValue;
+                n++;
+            } while (currentValue.Abs() > eps);
+            return sum;
+        }
+        static public int Fact(int n)
+        {
+            var res = 1;
+            for (var i = 1; i <= n; i++)
+            {
+                res = res * i;
+            }
+            return res;
+        }
+        static public Fraction SinFraction(Fraction x, Fraction eps)
+        {
+            var sum = new Fraction(0, 1);
+            var currentValue = new Fraction(0, 1);
+            var n = 1;
+            do
+            {
+                currentValue = Fraction.PowFraction(new Fraction(-1, 1), n) * (Fraction.PowFraction(x, 2 * n + 1) / Fact(2 * n + 1));
+                sum += currentValue;
+                n++;
+            } while (currentValue.Abs() > eps);
+            return sum;
+        }
+        static public Fraction CosFraction(Fraction x, Fraction eps)
+        {
+            var sum = new Fraction(0, 1);
+            var currentValue = new Fraction(0, 1);
+            var n = 1;
+            do
+            {
+                currentValue = Fraction.PowFraction(new Fraction(-1, 1), n) * (Fraction.PowFraction(x, 2 * n) / Fact(2 * n));
+                sum += currentValue;
+                n++;
+            } while (currentValue.Abs() > eps);
+            return sum;
+        }
+        static public Fraction CountPi(Fraction eps)
+        {
+            var pi = new Fraction(0,1);
+            int j = 1;
+            Fraction curValue;
+            do
+            {
+                curValue = new Fraction(4, j);
+                pi += new Fraction(4, j);
+                j += 2;
+                curValue = new Fraction(4, j);
+                pi -= curValue;
+                j += 2;
+            } while (curValue.Abs() > eps);
+            return pi;
+        }
+
+        public Fraction Argument(Fraction eps)
         {
             if(Real.Denominator > 0)
             {
                 //разрыв в pi/2, как тогда в ряд раскладывать для использования только Fraction?
-                return Math.Atan((Imaginary / Real).ToDouble());
+                return AtanFraction(Imaginary/ Real, eps);
             } else
             {
                 if(Imaginary.Denominator > 0)
                 {
-                    return Math.PI + Math.Atan((Imaginary / Real).ToDouble());
+                    return CountPi(eps) + AtanFraction((Imaginary / Real), eps);
                 }
-                return -Math.PI + Math.Atan((Imaginary / Real).ToDouble());
+                return CountPi(eps) + AtanFraction((Imaginary / Real), eps);
             }
         }
-        public List<Complex> SqrtN(int n)
+        public List<Complex> SqrtN(int n, Fraction eps)
         {
             var double_n = (double)n;
-            var power = 1/double_n;
+            var power = 1 / double_n;
             var coeff = Math.Pow(this.Absolute(new Fraction(1, 1000)).ToDouble(), power);
 
 
@@ -61,8 +131,8 @@ namespace SECOND_CS
             for (int i = 0; i < n; i++)
             {
                 //Console.WriteLine("added");
-                double real_ = coeff * Math.Cos((this.Argument() + 2 * Math.PI*i) / double_n);
-                double imaginary_ = coeff * Math.Sin((this.Argument() + 2 * Math.PI*i) / double_n);
+                double real_ = coeff * Math.Cos((this.Argument(eps).ToDouble() + 2 * Math.PI * i) / double_n);
+                double imaginary_ = coeff * Math.Sin((this.Argument(eps).ToDouble() + 2 * Math.PI * i) / double_n);
 
                 real_ *= 100000.0d;
                 imaginary_ *= 100000.0d;
