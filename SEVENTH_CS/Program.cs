@@ -10,29 +10,20 @@ namespace SEVENTH_CS
 {
     class Program
     {
-        static void Main(string[] args)
+        static void CreateQuestions(DirectoryInfo dirInfoForQuestions, DirectoryInfo dirInfoForGroups, DirectoryInfo destinationDir, string destinationDirName)
         {
-            
-            //Console.WriteLine(args[0]);
-            //Console.WriteLine(args[1]);
-            
-            var destinationDirName = args[2];
-
-            var dirInfoForQuestions = new DirectoryInfo(args[0]);
-            var dirInfoForGroups = new DirectoryInfo(args[1]);
-            var destinationDir = new DirectoryInfo(destinationDirName);
 
             if (!dirInfoForQuestions.Exists)
             {
-                throw new FileNotFoundException($"There is no such directory: {args[0]}");
+                throw new FileNotFoundException($"There is no such directory: {dirInfoForQuestions}");
             }
             if (!dirInfoForGroups.Exists)
             {
-                throw new FileNotFoundException($"There is no such directory: {args[1]}");
+                throw new FileNotFoundException($"There is no such directory: {dirInfoForGroups}");
             }
             if (!destinationDir.Exists)
             {
-                throw new FileNotFoundException($"There is no such directory: {args[2]}");
+                throw new FileNotFoundException($"There is no such directory: {destinationDir}");
             }
 
             var questionFiles = MakeQuestionFilesArray(dirInfoForQuestions);
@@ -41,7 +32,7 @@ namespace SEVENTH_CS
 
             var groupsFiles = MakeGroupFilesArray(dirInfoForGroups);
 
-                
+
             foreach (var groupFile in groupsFiles)
             {
                 //FileStream sourceStream = File.Open(groupFileName, FileMode.Open);
@@ -89,7 +80,7 @@ namespace SEVENTH_CS
                             {
                                 //fully
                                 identicalCounter++;
-                                if(identicalCounter != 2)
+                                if (identicalCounter != 2)
                                 {
                                     continue;
                                 }
@@ -123,7 +114,7 @@ namespace SEVENTH_CS
                                         }
                                         break;
                                     }
-                                    
+
                                     identicalLetters++;
                                 }
                                 for (int i = 0; i < Math.Max(currentFIO[2].Length, fio[2].Length); i++)
@@ -136,9 +127,9 @@ namespace SEVENTH_CS
                                         }
                                         break;
                                     }
-                                    
+
                                     identicalLetters++;
-                                    
+
                                 }
                             }
                         }
@@ -181,7 +172,7 @@ namespace SEVENTH_CS
 
                             }
                         }
-                            
+
                         Console.WriteLine(appropriateResultFileName.ToString());
 
                         File.Copy(randQuestionFile.FullName, Path.Combine(destinationDirName, appropriateResultFileName.ToString() + ".pdf"));
@@ -190,8 +181,31 @@ namespace SEVENTH_CS
             }
 
 
-            
+        }
 
+        static void Main(string[] args)
+        {
+            
+            //Console.WriteLine(args[0]);
+            //Console.WriteLine(args[1]);
+            
+            var destinationDirName = args[2];
+
+            var dirInfoForQuestions = new DirectoryInfo(args[0]);
+            var dirInfoForGroups = new DirectoryInfo(args[1]);
+            var destinationDir = new DirectoryInfo(destinationDirName);
+
+            try
+            {
+
+                CreateQuestions(dirInfoForQuestions, dirInfoForGroups, destinationDir, destinationDirName);
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
 
 
             //PrepareQuestionsForExam();
