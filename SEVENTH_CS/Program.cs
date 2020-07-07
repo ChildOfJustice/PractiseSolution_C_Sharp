@@ -29,6 +29,8 @@ namespace SEVENTH_CS
             var questionFiles = MakeQuestionFilesArray(dirInfoForQuestions);
             var availableQuestions = new LinkedList<FileInfo>(questionFiles);
             Console.WriteLine($"Available Questions: {availableQuestions.Count}");
+            
+
 
             var groupsFiles = MakeGroupFilesArray(dirInfoForGroups);
 
@@ -52,6 +54,10 @@ namespace SEVENTH_CS
                     {
                         //Get a random question:
                         Random rnd = new Random(new DateTime().Millisecond);
+                        if (availableQuestions.Count == 0)
+                        {
+                            throw new Exception("not inaf question files");
+                        }
                         int rand = rnd.Next() % availableQuestions.Count;
                         var item = availableQuestions.First;
                         for (int i = 0; i < rand; i++)
