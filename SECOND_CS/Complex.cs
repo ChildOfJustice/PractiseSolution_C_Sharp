@@ -32,7 +32,7 @@ namespace SECOND_CS
         public Fraction Absolute(Fraction eps)
         {
             var temp = Real*Real + Imaginary*Imaginary;
-            return temp.getSquareRootNewTon(eps);
+            return temp.GetSquareRootNewTon(eps);
         }
 
         static public Fraction AtanFraction(Fraction x, Fraction eps)

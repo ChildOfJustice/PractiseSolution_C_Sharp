@@ -11,7 +11,7 @@ namespace FOURTH_CS
     class MiddleRectsIntegrate : IIntegratable
     {
         
-        public Fraction Integrate(Func<Fraction, Fraction> function, Fraction a, Fraction b, Fraction eps, string methodName, out TimeSpan timeElapsed)
+        public Fraction Integrate(Func<Fraction, Fraction> function, Fraction a, Fraction b, Fraction eps, string methodName, out TimeSpan timeElapsed, out int iterations)
         {
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
@@ -22,7 +22,7 @@ namespace FOURTH_CS
                 n++;
                 h = (b - a) / n;
             }
-
+            iterations = n;
             var sum = new Fraction(0, 1);
 
             var x = a += h / 2;

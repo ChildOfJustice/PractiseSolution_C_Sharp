@@ -11,38 +11,22 @@ namespace FIRST_CS
     {
         static void Main(string[] args)
         {
+            var eps = new Fraction(1, 10000);
             var fr1 = new Fraction(8, 10);
             var fr2 = new Fraction(-1, 1);
             var n = 1;
             var fr3 = Fraction.PowFraction(fr1, 2 * n + 1) / (2 * n + 1);
             try
-            {
-
-                //var fr3 = new Fraction(1, 12);
-                Console.WriteLine((Fraction.PowFraction(fr1, 5)).ToDouble());
-                //var f3 = new Fraction(fr1.Numerator, fr1.Denominator);
-                //Console.WriteLine(f3.Numerator);
-                //Console.WriteLine(f3.Denominator);
-
-
-                //Console.WriteLine(fr3.ToDecimalFractionString(3));
-                //Console.WriteLine(fr3.getSquareRootNewTon(new Fraction(1, 100000)).ToDecimalFractionString(100));
-
+            {  
+                Console.WriteLine((Fraction.PowFraction(fr1, 5)).ToDecimalFractionString(10));
+                Console.WriteLine((fr3.GetSquareRootNewTon(eps)).ToDecimalFractionString(100));
+                
 
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
-
-            //Console.WriteLine((fr1 / fr2).ToString());
-            //Console.WriteLine((fr1 / 2).ToString());
-
-            //Console.WriteLine(((new Fraction(9, 4) - new Fraction(2, 1))*(new Fraction(3, 1) - new Fraction(2, 1))).ToString());
-
-            //Console.WriteLine((fr2.getSquareRootNewTon(new Fraction(1, 10))).ToString());
-
-            //Console.WriteLine((fr1 - fr2).ToString());
 
             Console.ReadLine();
         }

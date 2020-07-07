@@ -11,7 +11,7 @@ namespace FOURTH_CS
 {
     interface IIntegratable
     {
-        Fraction Integrate(Func<Fraction, Fraction> function, Fraction a, Fraction b, Fraction eps, string methodName, out TimeSpan timeElapsed);
+        Fraction Integrate(Func<Fraction, Fraction> function, Fraction a, Fraction b, Fraction eps, string methodName, out TimeSpan timeElapsed, out int iterations);
         
     }
 }

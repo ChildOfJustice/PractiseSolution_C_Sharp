@@ -198,7 +198,7 @@ namespace FIRST_CS
             return DivisionByInt(left, right);
         }
 
-        public Fraction getSquareRootNewTon(Fraction eps)
+        public Fraction GetSquareRootNewTon(Fraction eps)
         {
             if(eps <= new Fraction(0,1))
             {
